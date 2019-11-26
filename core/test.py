@@ -1,4 +1,3 @@
-"""Adversarial adaptation to train target encoder."""
 import os
 from collections import OrderedDict
 import torchvision.utils as vutils
