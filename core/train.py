@@ -5,7 +5,7 @@ import torchvision.utils as vutils
 import torch
 import torch.optim as optim
 from torch import nn
-from misc.utils import get_inf_iterator, mkdir, mixup_process_intra, mixup_process_cross
+from misc.utils import get_inf_iterator, mkdir
 from misc import evaluate
 from torch.nn import DataParallel
 import random
