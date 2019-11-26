@@ -1,4 +1,3 @@
-"""Adversarial adaptation to train target encoder."""
 import itertools
 import os
 from collections import OrderedDict
