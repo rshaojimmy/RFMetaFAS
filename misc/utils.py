@@ -178,25 +178,6 @@ def init_model(net, restore, init_type, init= True, parallel_reload=True):
     return net
 
 
-# def save_model(net, filename):
-#     """Save trained model."""
-#     if not os.path.exists(args.model_root):
-#         os.makedirs(args.model_root)
-#     torch.save(net.state_dict(),
-#                os.path.join(args.model_root, filename))
-#     print("save pretrained model to: {}".format(os.path.join(args.model_root,
-#                                                              filename)))
-
-# def save_trainedmodel(net, filename):
-#     """Save trained model."""
-#     if not os.path.exists(os.path.join(args.model_root, args.namesave)):
-#         os.makedirs(os.path.join(args.model_root, args.namesave))
-#     torch.save(net.state_dict(),
-#                os.path.join(args.model_root, args.namesave, filename))
-#     print("save pretrained model to: {}".format(os.path.join(args.model_root, args.namesave,
-#                                                              filename)))
-
-
 def mkdir(path):
     if not os.path.exists(path):
         os.makedirs(path)
@@ -255,52 +236,6 @@ def copy_weights(from_net, to_net):
             if m_to.bias is not None:
                 m_to.bias.data = m_from.bias.data.clone()
 
-
-
-def mixup_process_intra(img, target, dep, alpha=1.0):
-    '''Returns mixed inputs, pairs of targets, and lambda'''
-    if alpha > 0:
-        lam = np.random.beta(alpha, alpha)
-    else:
-        lam = 1
-
-    batch_size = img.size()[0]
-
-    index = torch.randperm(batch_size).cuda()
-
-    mixed_x = lam * img + (1 - lam) * img[index, :]
-    mixed_dep = lam * dep + (1 - lam) * dep[index, :]
-
-    y_a, y_b = target, target[index]
-    
-    return mixed_x, y_a, y_b, mixed_dep, lam
-
-
-
-def mixup_process_cross(img, target, dep, alpha=1.0):
-
-    if alpha > 0:
-        lam = np.random.beta(alpha, alpha)
-    else:
-        lam = 1
-
-
-    slice_num = int(img.size(0)/2)
-    indices1 = torch.randperm(slice_num).cuda()
-    indices2 = torch.randperm(slice_num).cuda()
-
-    img1 = img[:slice_num,:][indices1,:]
-    img2 = img[slice_num:,:][indices2,:]
-    img_mix = img1*lam + img2*(1-lam)
-
-    target_a = target[:slice_num][indices1] 
-    target_b = target[slice_num:][indices2]  
-
-    dep_a = dep[:slice_num,:][indices1,:]
-    dep_b = dep[slice_num:,:][indices2,:]
-    mixed_dep = lam * dep_a + (1 - lam) * dep_b
-
-    return img_mix, target_a, target_b, mixed_dep, lam
 
 
 
