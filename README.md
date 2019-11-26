@@ -1,6 +1,6 @@
 # AAAI2020-RFMetaFAS
 
-Pytorch codes for Regularized Fine-grained Meta Face Anti-spoofing <a href=http://https://arxiv.org/pdf/1911.10771.pdf> (arxiv) </a> in AAAI 2020 
+Pytorch codes for Regularized Fine-grained Meta Face Anti-spoofing <a href=http://arxiv.org/pdf/1911.10771.pdf> (arxiv) </a> in AAAI 2020 
 
 Idea of the proposed regularized fine-grained meta-learning framework. By incorporating domain knowledge as regularization, meta-learning is conducted in the feature space regularized by the domain knowledge supervision. Thus, generalized learning directions are more likely to be found for task of face anti-spoofing. Besides, the proposed framework adopts a fine-grained learning strategy that simultaneously conducts meta-learning in a variety of domain shift scenarios. Thus, more abundant domain shift information of face anti-spoofing task can be exploited.
 
