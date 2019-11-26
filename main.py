@@ -1,4 +1,3 @@
-"""Main script for ADDA."""
 import os
 import os.path as osp
 import argparse
