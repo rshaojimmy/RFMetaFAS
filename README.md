@@ -29,7 +29,7 @@ To run the main file: python main.py --training_type Train
 
 To run the main file: python main.py --training_type Test
 
-It will generate a .h5 file that contains the score for each frame.
+It will generate a .h5 file that contains the score for each frame. Then, we use these scores to calculate the AUC and HTER.
 
 # Acknowledge
 Please kindly cite this paper in your publications if it helps your research:
