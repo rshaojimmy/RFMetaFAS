@@ -16,7 +16,7 @@ Overview of proposed framework. We simulate domain shift by randomly dividing or
 
 * The source code folders:
 
-  1. "models": Contains the network architectures suitable for high-order derivatives calculation of network parameters.
+  1. "models": Contains the network architectures suitable for high-order derivatives calculation of network parameters. Please note that FeatExtractor, DepthEstmator and FeatEmbedder in the code are feature extractor, depth estimator and meta learner in the paper, respectively. 
   2. "core": Contains the training and testing files. Note that we generate score for each frame during the testing.
   3. "datasets": Contains datasets loading
   4. "misc": Contains initialization and some preprocessing functions
